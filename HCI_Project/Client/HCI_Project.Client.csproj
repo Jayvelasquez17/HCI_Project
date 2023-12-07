@@ -22,4 +22,12 @@
     <ProjectReference Include="..\Shared\HCI_Project.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\pineview-reservoir.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Shared\MainLayout.razor">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
