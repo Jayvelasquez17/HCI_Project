@@ -48,3 +48,43 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.overlay:hover {
+    background-color: rgba(0,0,0,0.6);
+}
+
+.left-column-label {
+    display: none;
+}
+
+.right-column-label {
+    display: none;
+}
+
+.overlay:hover .left-column-label {
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    font-family: SingleFlashing;
+    padding-top: 165px;
+}
+
+.overlay:hover .right-column-label {
+    display: block !important;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    font-family: SingleFlashing;
+    padding-top: 115px;
+}
