@@ -9,29 +9,26 @@ main {
 }
 
 .sidebar {
-    background: url('/pineview-header.png');
+    background: cadetblue;
 }
 
 @media (min-width: 641px) {
     .sidebar {
-        height: 35vh;
+        height: 24vh;
         position: sticky;
-        top: 0;
-        background: url('/pineview-header.png');
+        background: cadetblue;
     }
 }
 
 .page-title {
     text-align: -webkit-center;
-    background-color: rgba(0,0,0,0.4);
-    margin-top: 5%;
+    margin: 5%;
 }
 
 .page-title-label {
     color: white;
     font-weight: bold;
-    font-size: 2.3em;
-    max-width: 25%;
+    font-size: 3em;
     text-align: center;
     font-family: SingleFlashing;
 }

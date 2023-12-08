@@ -10,20 +10,17 @@
 }
 
 .top-left-box {
-    /*    background-color: red;*/
     height: 50%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("/pineview-block.png");
+    background-image: url('/pineview-block.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
 }
 
 .bottom-left-box {
-    background-color: orange;
     height: 50%;
+    background-image: url('/glassman-pond.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .right-column {
@@ -32,16 +29,22 @@
 }
 
 .top-right-box {
-    background-color: yellow;
     height: 33.33%;
+    background-image: url('/weber-river.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .middle-right-box {
-    background-color: green;
     height: 33.33%;
+    background-image: url('/ogden-river.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .bottom-right-box {
-    background-color: blue;
     height: 33.33%;
+    background-image: url('/beus-pond.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
