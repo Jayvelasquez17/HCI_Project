@@ -88,3 +88,40 @@
     font-family: SingleFlashing;
     padding-top: 115px;
 }
+
+.font-size-toggle {
+    display: flex;
+    position: fixed;
+    width: 18px;
+    height: 40px;
+    background: lightgray;
+    top: 350px;
+    right: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    transition: width 0.4s ease-in-out;
+}
+
+.font-size-toggle:hover {
+    width: 75px;
+    transition: width 0.4s ease-in-out;
+}
+
+.arrow-image {
+    max-width: 16px;
+}
+
+.font-buttons {
+    display: flex;
+    gap: 12px;
+    margin-left: 10px;
+    margin-top: 4px;
+    align-items: baseline;
+    cursor: pointer;
+}
+
+.selected-size {
+    background-color: darkgray;
+    text-align-last: center;
+    padding: 0px 6px;
+}

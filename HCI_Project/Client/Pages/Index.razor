@@ -1,33 +1,46 @@
 ﻿@page "/"
+@using Radzen;
+@inject DialogService DialogService
+
 
 <PageTitle>Fishin' Weber</PageTitle>
-
+<div class="font-size-toggle">
+    <img class="arrow-image" src="/arrow.svg" />
+    <div class="font-buttons">
+        <p class="@(_largerText ? "" : "selected-size")"
+           style="font-size: 12px;"
+           onclick="@(() => { _largerText = false; })">A</p>
+        <p class="@(_largerText ? "selected-size" : "")"
+           style="font-size: 20px;"
+           onclick="@(() => { _largerText = true; })">A</p>
+    </div>
+</div>
 <div class="main-list-container">
     <div class="left-column">
         <div class="top-left-box">
-            <div class="overlay">
+            <div class="overlay" onclick="@(async () => await ShowPineviewDetails())">
                 <p class="left-column-label">1. Pineview Reservoir</p>
             </div>
         </div>
         <div class="bottom-left-box">
-            <div class="overlay">
+            <div class="overlay" onclick="@(async () => await ShowGlassmanPondDetails())">
                 <p class="left-column-label">4. Glassman Pond</p>
             </div>
         </div>
     </div>
     <div class="right-column">
         <div class="top-right-box">
-            <div class="overlay">
+            <div class="overlay" onclick="@(async () => await ShowWeberRiverDetails())">
                 <p class="right-column-label">2. Weber River</p>
             </div>
         </div>
         <div class="middle-right-box">
-            <div class="overlay">
+            <div class="overlay" onclick="@(async () => await ShowOgdenRiverDetails())">
                 <p class="right-column-label">3. Ogden River</p>
             </div>
         </div>
         <div class="bottom-right-box">
-            <div class="overlay">
+            <div class="overlay" onclick="@(async () => await ShowBeusPondDetails())">
                 <p class="right-column-label">5. Beus Pond</p>
             </div>
         </div>
@@ -35,5 +48,212 @@
 </div>
 
 @code {
-    
+
+    private bool _largerText;
+
+    public async Task ShowPineviewDetails()
+    {
+        var result = await DialogService.OpenAsync("Pineview Reservoir", content =>
+        @<div>
+            <p style="font-size: @(_largerText ? "26px;" : "16px;")">
+                Nestled in the picturesque Ogden Valley, just 7 miles east of Ogden,
+                Pineview Reservoir awaits with its serene beauty and a myriad of
+                recreational opportunities. Created by the majestic Pineview Dam on the
+                Ogden River, this reservoir spans 2,874 acres, offering a peaceful escape
+                surrounded by lush landscapes.
+            </p>
+
+            <p style="font-weight: bold; margin-top: 8px;">Fish Species:</p>
+            <div style="display: flex; gap: 24px;">
+                <div style="text-align: center;">
+                    <img style="max-width: 200px;" src="/rainbow-trout.jpeg" />
+                    <p>Rainbow Trout</p>
+                </div>
+                <div style="text-align: center;">
+                    <img style="max-width: 200px;" src="/brown-trout.webp" />
+                    <p>Brown Trout</p>
+                </div>
+                <div style="text-align: center;">
+                    <img style="max-width: 200px;" src="/smallmouth.jpeg" />
+                    <p>Smallmouth Bass</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 24px;">
+                <div style="text-align: center;">
+                    <img style="max-width: 200px;" src="/perch.webp" />
+                    <p>Perch</p>
+                </div>
+                <div style="text-align: center;">
+                    <img style="max-width: 200px;" src="/catfish.jpeg" />
+                    <p>Channel Catfish</p>
+                </div>
+            </div>
+        </div>, new DialogOptions() { Width = "700px", Height = "512px", Resizable = true, Draggable = true });
+}
+
+public async Task ShowWeberRiverDetails()
+{
+  var result = await DialogService.OpenAsync("Weber River", content =>
+@<div>
+    <p style="font-size: @(_largerText ? "26px;" : "16px;")">
+        Welcome to the Weber River, a fly-fishing haven and
+        nature's masterpiece nestled in the heart of Utah.
+        Flowing gracefully through scenic valleys and canyons,
+        the Weber River offers an enchanting escape for anglers
+        seeking the thrill of reeling in rainbow and brown trout
+        amidst breathtaking landscapes. As you cast your line into
+        its pristine waters, you'll be serenaded by the soothing
+        sounds of flowing water, surrounded by the vibrant colors
+        of changing seasons. Beyond the thrill of the catch, explore
+        picturesque viewpoints, encounter diverse wildlife, and
+        immerse yourself in the tranquility of this Utah gem. With
+        accessible access points, thrilling rapids, and the promise
+        of an unforgettable fishing adventure, the Weber River beckons,
+        inviting you to discover the perfect blend of outdoor excitement
+        and natural beauty.
+    </p>
+
+    <p style="font-weight: bold; margin-top: 8px;">Fish Species:</p>
+    <div style="display: flex; gap: 24px;">
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/rainbow-trout.jpeg" />
+            <p>Rainbow Trout</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/brown-trout.webp" />
+            <p>Brown Trout</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/cutthroat.jpeg" />
+            <p>Cutthroat Trout</p>
+        </div>
+    </div>
+</div>, new DialogOptions() { Width = "700px", Height = "512px", Resizable = true, Draggable = true });
+}
+
+public async Task ShowGlassmanPondDetails()
+{
+var result = await DialogService.OpenAsync("Glassman Pond", content =>
+@<div>
+    <p style="font-size: @(_largerText ? "26px;" : "16px;")">
+        Welcome to Glassman Pond, a hidden gem within Glassman Pond Park in
+        Ogden, Weber County, Utah. Embrace the tranquility as you wander along
+        the intimate dirt path encircling the pond, where inviting benches and
+        wooden docks provide perfect spots for relaxation. A short 10-minute
+        walk from Weber State University, Glassman Pond offers a peaceful escape
+        shaded by towering trees. Discover the enchanting beauty of lily pads
+        gracing the pond's surface, enhancing the natural allure of this small
+        yet delightful locale. While not a sprawling fishing destination, it's a
+        perfect spot for a serene break—a charming haven inviting you to unwind
+        and savor the simplicity of its waterside charm. With its modest size,
+        Glassman Pond still promises some fun fishing moments, making it an ideal
+        retreat for those seeking both tranquility and a touch of angler's delight.
+        Glassman Pond is your retreat into nature's embrace, a cozy and picturesque
+        setting for moments of peaceful reflection and a bit of fishing fun.
+    </p>
+
+    <p style="font-weight: bold; margin-top: 8px;">Fish Species:</p>
+    <div style="display: flex; gap: 24px;">
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/rainbow-trout.jpeg" />
+            <p>Rainbow Trout</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/catfish.jpeg" />
+            <p>Channel Catfish</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/largemouth.webp" />
+            <p>Largemouth Bass</p>
+        </div>
+    </div>
+    <div style="display: flex; gap: 24px;">
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/bluegill.jpeg" />
+            <p>Bluegill</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/crappie.webp" />
+            <p>Crappie</p>
+        </div>
+    </div>
+</div>, new DialogOptions() { Width = "700px", Height = "512px", Resizable = true, Draggable = true });
+}
+
+public async Task ShowOgdenRiverDetails()
+{
+var result = await DialogService.OpenAsync("Ogden River", content =>
+@<div>
+    <p style="font-size: @(_largerText ? "26px;" : "16px;")">
+        Explore the scenic beauty and tranquil waters of the Ogden River, a
+        captivating destination in the heart of Ogden, Utah. Embraced by the
+        picturesque landscapes of Weber County, this winding waterway invites
+        visitors to stroll along its banks, where a rustic charm blends seamlessly
+        with the natural surroundings. Wooden bridges span the river, providing
+        enchanting views and opportunities for leisurely walks. Shaded by the
+        graceful canopy of trees, the Ogden River offers a peaceful escape from
+        the urban hustle, making it an ideal spot for both relaxation and outdoor
+        recreation. Whether you're seeking a quiet riverside retreat, a scenic
+        walk, or a place to cast a line and fish for brown and rainbow trout,
+        the Ogden River unveils a haven where nature's serenity takes center stage.
+    </p>
+
+    <p style="font-weight: bold; margin-top: 8px;">Fish Species:</p>
+    <div style="display: flex; gap: 24px;">
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/rainbow-trout.jpeg" />
+            <p>Rainbow Trout</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/brown-trout.webp" />
+            <p>Brown Trout</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/cutthroat.jpeg" />
+            <p>Cutthroat Trout</p>
+        </div>
+    </div>
+</div>, new DialogOptions() { Width = "700px", Height = "512px", Resizable = true, Draggable = true });
+}
+
+public async Task ShowBeusPondDetails()
+{
+var result = await DialogService.OpenAsync("Beus Pond", content =>
+@<div>
+    <p style="font-size: @(_largerText ? "26px;" : "16px;")">
+        Discover Beus Pond, a charming local spot in Ogden, Utah, where
+        a pleasant park meets a small yet inviting fishing haven. The pond
+        is encircled by a trail, offering an easy stroll beneath the
+        shade of impressive trees. With wooden docks and benches dotting
+        the waterside, it's an ideal spot for anglers seeking a quiet afternoon
+        of fishing. Ducks add to the local charm, creating a laid-back ambiance.
+        Beus Pond may not be expansive, but it promises a delightful escape for
+        those looking to unwind, cast a line, and enjoy the simplicity of this
+        unassuming fishing spot in Ogden.
+    </p>
+
+    <p style="font-weight: bold; margin-top: 8px;">Fish Species:</p>
+    <div style="display: flex; gap: 24px;">
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/rainbow-trout.jpeg" />
+            <p>Rainbow Trout</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/bluegill.jpeg" />
+            <p>Bluegill</p>
+        </div>
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/carp.jpeg" />
+            <p>Common Carp</p>
+        </div>
+    </div>
+    <div style="display: flex; gap: 24px;">
+        <div style="text-align: center;">
+            <img style="max-width: 200px;" src="/bullhead.jpeg" />
+            <p>Bullhead Catfish</p>
+        </div>
+    </div>
+
+</div>, new DialogOptions() { Width = "700px", Height = "512px", Resizable = true, Draggable = true });
+}
 }
